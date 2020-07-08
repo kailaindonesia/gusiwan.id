@@ -61,6 +61,18 @@ public function khususgalang(){
     }
   
 }
+public function kodim()
+{
+       $data = $this->session->userdata('nama');
+          $hasil = $this->db->select('password')
+                            ->where('username', $data)
+                            ->get('user');
+        if($hasil->num_rows() > 0){
+            return $hasil->result();
+        } else {
+            return array();
+        }  return $query->result();
+}
 
 public function khususgalang1(){
 

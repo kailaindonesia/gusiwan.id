@@ -76,7 +76,7 @@
               <!-- Single Settings-->
               <div class="single-settings d-flex align-items-center justify-content-between">
                 <div class="title"><i class="lni-lock"></i><span>Password</span></div>
-                <div class="data-content"><a href="<?= site_url('newpassword'); ?>">Change<i class="lni-chevron-right"></i></a></div>
+                <div class="data-content"><a href="<?= site_url('account/change_password'); ?>">Change<i class="lni-chevron-right"></i></a></div>
               </div>
             </div>
           </div>
@@ -92,3 +92,5 @@
         </div>
       </div>
     </div>
+
+   

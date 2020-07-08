@@ -128,6 +128,21 @@ class Model_loguser extends CI_Model {
         $this->db->where($where);
         $this->db->update('user',$data);
     }
+    public function save_pw(){
+        $pass = $this->input->post('new_password');
+        $data =array(
+            'password' => $pass
+        );
+        $this->db->where('username',$this->session->userdata('nama'));
+        $this->db->update('user',$data);
+    }
+
+    public function cek_old($old){
+         
+        $this->db->where('password',$old);
+        $query = $this->db->get('user');
+        return $query->result();
+    }
 }
 
 
