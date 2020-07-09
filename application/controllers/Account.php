@@ -57,14 +57,15 @@ class Account extends CI_Controller {
 
 	public function change_password(){
 		$this->load->model('model_loguser');
-		$this->form_validation->set_rules('new_password','New Password','required');
-		$this->form_validation->set_rules('new_password1','Repeat New Password','required|matches[new_password]');
+		$data['user'] = $this->model_loguser->all();
+		$this->form_validation->set_rules('new_password','Password Bary','required|matches[new_password1]');
+		$this->form_validation->set_rules('new_password1','Ulangi Password','required|matches[new_password]');
 
 		if($this->form_validation->run() == false)
 		{
 			$this->load->view('user/_partials/header');
 			$this->load->view('user/_partials/sidebar');
-			$this->load->view('user/change_password');
+			$this->load->view('user/change_password',$data);
 			$this->load->view('user/_partials/footer');
 		}else{
 			$old = $this->input->post('old_password');
